@@ -12,7 +12,7 @@ import os
 import re
 import time
 from pathlib import Path
-from fsplit.filesplit import Filesplit
+from filesplit.merge import Merge
 from paddle import fluid
 from tools.constant import *
 
@@ -170,12 +170,12 @@ if REC_CHAR_TYPE in MULTI_LANG:
 
     # 查看该路径下是否有文本模型识别完整文件，没有的话合并小文件生成完整文件
     if 'inference.pdiparams' not in (os.listdir(REC_MODEL_PATH)):
-        fs = Filesplit()
-        fs.merge(input_dir=REC_MODEL_PATH)
+        merge = Merge(input_dir=REC_MODEL_PATH)
+        merge.merge()
     # 查看该路径下是否有文本模型识别完整文件，没有的话合并小文件生成完整文件
     if 'inference.pdiparams' not in (os.listdir(DET_MODEL_PATH)):
-        fs = Filesplit()
-        fs.merge(input_dir=DET_MODEL_PATH)
+        merge = Merge(input_dir=DET_MODEL_PATH)
+        merge.merge()
 # ×××××××××××××××××××× [不要改]读取语言、模型路径、字典路径 end ××××××××××××××××××××
 
 
