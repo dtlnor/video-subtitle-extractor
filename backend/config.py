@@ -66,7 +66,7 @@ while not IS_LEGAL_PATH:
 
 # ×××××××××××××××××××× [不要改]判断是否使用GPU start ××××××××××××××××××××
 # 是否使用GPU
-USE_GPU = False
+USE_GPU = True
 # 如果paddlepaddle编译了gpu的版本
 if fluid.is_compiled_with_cuda():
     # 查看是否有可用的gpu
@@ -199,9 +199,9 @@ DEFAULT_SUBTITLE_AREA = SubtitleArea.UNKNOWN
 COSINE_SIMILARITY_THRESHOLD = 0.95 if DEFAULT_SUBTITLE_AREA == SubtitleArea.UNKNOWN else 0.9
 
 # 每一秒抓取多少帧进行OCR识别
-EXTRACT_FREQUENCY = 3
+EXTRACT_FREQUENCY = 6
 # 每几帧抽取一帧进行OCR识别
-EXTRACT_INTERVAL = 8
+EXTRACT_INTERVAL = 2
 
 # 欧式距离相似值
 EUCLIDEAN_SIMILARITY_THRESHOLD = 0.9
@@ -229,13 +229,13 @@ DROP_SCORE = 0.75
 SUB_AREA_DEVIATION_RATE = 0
 
 # 输出丢失的字幕帧, 仅简体中文,繁体中文,日文,韩语有效, 默认将调试信息输出到: 视频路径/loss
-DEBUG_OCR_LOSS = False
+DEBUG_OCR_LOSS = True
 
 # 是否不删除缓存数据，以方便调试
 DEBUG_NO_DELETE_CACHE = False
 
 # 是否删除空时间轴
-DELETE_EMPTY_TIMESTAMP = True
+DELETE_EMPTY_TIMESTAMP = False
 
 # 是否重新分词, 用于解决没有语句没有空格
 WORD_SEGMENTATION = True
